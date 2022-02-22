@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './Header.js';
+import React from 'react';
+import Body from './Body';
 
-function App() {
+class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state={titulo:'Titulo ejercicio'}
+    this.modTitulo = this.modTitulo.bind(this)
+  }
+  render(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <Header titulo={this.state.titulo}/>
+    <Body modtit={this.modTitulo}/>
     </div>
   );
+  }
+  modTitulo(){
+    this.setState({titulo:'Titulo cambiado'})
+  }
 }
-
 export default App;
